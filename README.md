@@ -32,6 +32,12 @@ $ cd openldap
 $ make build
 ```
 
+Note: ldapsearch is required for tests.  If not installed, to install:
+
+```
+$ apt-get install ldap-utils
+```
+
 Environment variables and volumes
 ----------------------------------
 

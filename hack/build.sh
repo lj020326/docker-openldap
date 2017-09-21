@@ -38,9 +38,13 @@ function docker_build_with_version {
 function squash {
   # FIXME: We have to use the exact versions here to avoid Docker client
   #        compatibility issues
-  easy_install -q --user docker_py==1.6.0 docker-scripts==0.4.4
+#  easy_install -q --user docker_py==1.6.0 docker-scripts==0.4.4
+  easy_install -q --user docker_py==1.6.0 docker-squash==1.0.6
   base=$(awk '/^FROM/{print $2}' $1)
-  ${HOME}/.local/bin/docker-scripts squash -f $base ${IMAGE_NAME}
+  print "version=$1"
+  print "base=$base"
+#  ${HOME}/.local/bin/docker-scripts squash -f $base ${IMAGE_NAME}
+  ${HOME}/.local/bin/docker-squash -f $base -t "${IMAGE_NAME}:squashed" ${IMAGE_NAME}
 }
 
 # Versions are stored in subdirectories. You can specify VERSION variable
