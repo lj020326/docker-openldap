@@ -41,9 +41,10 @@ function squash {
 #  easy_install -q --user docker_py==1.6.0 docker-scripts==0.4.4
   easy_install -q --user docker_py==1.6.0 docker-squash==1.0.6
   base=$(awk '/^FROM/{print $2}' $1)
-  print "version=$1"
-  print "base=$base"
+#  print "version=$1"
+#  print "base=$base"
 #  ${HOME}/.local/bin/docker-scripts squash -f $base ${IMAGE_NAME}
+  #  ${HOME}/.local/bin/docker-scripts squash -f $base ${IMAGE_NAME}
   ${HOME}/.local/bin/docker-squash -f $base -t "${IMAGE_NAME}:squashed" ${IMAGE_NAME}
 }
 
